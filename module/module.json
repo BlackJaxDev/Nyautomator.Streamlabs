@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "streamlabs",
+  "displayName": "Streamlabs",
+  "description": "Streamlabs OAuth account linking and status.",
+  "version": "0.1.0",
+  "minHostVersion": "0.0.0",
+  "entryAssembly": "Nyautomator.Module.Streamlabs.dll",
+  "entryType": "Nyautomator.Modules.Streamlabs.StreamlabsModule",
+  "capabilities": [
+    "dashboard.cards",
+    "settings.cards",
+    "icons"
+  ],
+  "assetsRoot": "assets",
+  "contributions": {
+    "icons": [
+      {
+        "id": "streamlabs",
+        "path": "icons/streamlabs.svg"
+      }
+    ],
+    "dashboardCards": [
+      {
+        "id": "status",
+        "title": "Streamlabs",
+        "icon": "streamlabs",
+        "renderer": "status-card",
+        "statusSource": "/modules/streamlabs/api/status",
+        "actions": [
+          {
+            "id": "connect",
+            "label": "Connect",
+            "method": "POST",
+            "path": "/modules/streamlabs/api/authorize"
+          },
+          {
+            "id": "disconnect",
+            "label": "Disconnect",
+            "method": "POST",
+            "path": "/modules/streamlabs/api/disconnect"
+          }
+        ],
+        "order": 620
+      }
+    ],
+    "settingsCards": [
+      {
+        "id": "settings",
+        "title": "Streamlabs",
+        "icon": "streamlabs",
+        "renderer": "asset-frame",
+        "configPath": "/modules/streamlabs/config",
+        "schemaPath": "config/streamlabs.schema.json",
+        "statusSource": "/modules/streamlabs/api/status",
+        "assetPath": "settings/settings.html",
+        "auth": {
+          "title": "Streamlabs",
+          "description": "Streamlabs OAuth client credentials and account link.",
+          "assetPath": "settings/settings.html",
+          "fields": [
+            "clientSecret"
+          ],
+          "metadata": {
+            "saveOnHostSave": true
+          }
+        },
+        "metadata": {
+          "placement": "auth",
+          "saveOnHostSave": true
+        },
+        "order": 620
+      }
+    ],
+    "configurations": [
+      {
+        "id": "options",
+        "schemaPath": "config/streamlabs.schema.json",
+        "defaults": {
+          "redirectUri": "http://localhost:8082/streamlabs/callback",
+          "scopes": []
+        }
+      }
+    ]
+  }
+}

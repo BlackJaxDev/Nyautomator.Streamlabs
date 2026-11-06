@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Nyautomator.Module.Streamlabs/Nyautomator.Module.Streamlabs.csproj" />
+    <Project Path="src/Nyautomator.Streamlabs/Nyautomator.Streamlabs.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Nyautomator.Module.Streamlabs.Tests/Nyautomator.Module.Streamlabs.Tests.csproj" />
+  </Folder>
+</Solution>
